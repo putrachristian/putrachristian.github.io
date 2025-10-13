@@ -8,4 +8,7 @@ export default defineConfig({
     host: "0.0.0.0", // Listen on all network interfaces
     port: 2078,
   },
+  build: {
+    outDir: "docs",
+  },
 })
