@@ -1,0 +1,77 @@
+:root {
+	--primary: #007aff;
+	--accent: #5e5ce6;
+	--bg: #0a0a0a;
+	--glass-bg: rgba(30, 30, 30, 0.95);
+	--glass-border: rgba(255, 255, 255, 0.1);
+	--glass-shadow: rgba(0, 0, 0, 0.3);
+	--text: #ffffff;
+	--text-secondary: rgba(255, 255, 255, 0.7);
+	--backdrop-blur: 40px;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter",
+		"Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: url("./assets/hello.webp") center/contain no-repeat, #b2c9df;
+	color: var(--text);
+	line-height: 1.6;
+	overflow: hidden;
+}
+
+#root {
+	height: 100vh;
+	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 10px;
+	backdrop-filter: blur(10px);
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.3);
+	}
+}
+
+::selection {
+	background: var(--primary);
+	color: white;
+}
+
+:focus-visible {
+	outline: 2px solid var(--primary);
+	outline-offset: 2px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.glass {
+	background: var(--glass-bg);
+	backdrop-filter: blur(var(--backdrop-blur));
+	-webkit-backdrop-filter: blur(var(--backdrop-blur));
+	border: 1px solid var(--glass-border);
+	box-shadow: 0 8px 32px var(--glass-shadow);
+}
