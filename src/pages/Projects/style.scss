@@ -207,7 +207,7 @@
 	border-radius: 32px;
 	max-width: 1100px;
 	width: 100%;
-	max-height: 90vh;
+	height: 55vh;
 	overflow-y: auto;
 	position: relative;
 	animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -255,6 +255,7 @@
 	grid-template-columns: 1.2fr 1fr;
 	gap: 2rem;
 	padding: 2.5rem;
+	height: 100%;
 
 	@media (max-width: 968px) {
 		grid-template-columns: 1fr;
@@ -270,9 +271,11 @@
 	background: rgba(0, 0, 0, 0.3);
 
 	img {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 		width: 100%;
-		object-fit: cover;
-		display: block;
+		object-fit: contain;
 	}
 }
 
@@ -388,6 +391,9 @@
 	color: rgba(255, 255, 255, 0.85);
 	line-height: 1.8;
 	font-size: 1.05rem;
+	overflow-y: auto;
+	flex-grow: 1;
+	height: 1px;
 }
 
 .modal-tags {

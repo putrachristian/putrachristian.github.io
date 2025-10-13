@@ -34,22 +34,12 @@ function Projects() {
     }
   }
 
-  if (loading) {
+  if (!projects) {
     return (
       <div className="projects">
         <div className="loading-container">
           <div className="loading-spinner"></div>
           <span>Loading projects...</span>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="projects">
-        <div className="error-container">
-          <span>⚠️ Failed to load projects. Please try again later.</span>
         </div>
       </div>
     )
@@ -134,9 +124,9 @@ function Projects() {
 
               <div className="modal-info">
                 <h2>{selectedProject.title}</h2>
-                <p className="modal-description">
-                  {selectedProject.description}
-                </p>
+                <div className="modal-description">
+                  <p>{selectedProject.description}</p>
+                </div>
               </div>
             </div>
           </div>

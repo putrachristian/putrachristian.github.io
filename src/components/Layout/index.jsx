@@ -142,15 +142,15 @@ function Layout({ children }) {
               />
             </button>
 
-            {profileMenuOpen && profile && (
+            {profileMenuOpen && (
               <div className="profile-dropdown">
                 <div className="dropdown-header">
                   <div className="dropdown-avatar">
-                    <img src={profilePhoto} alt={profile.name} />
+                    <img src={profilePhoto} alt={profile?.name || "User"} />
                   </div>
                   <div className="dropdown-info">
-                    <h3>{profile.name}</h3>
-                    <p>{profile.title}</p>
+                    <h3>{profile?.name || "User"}</h3>
+                    <p>{profile?.title || "Loading..."}</p>
                   </div>
                 </div>
 
@@ -158,12 +158,15 @@ function Layout({ children }) {
 
                 <div className="dropdown-section">
                   <h4>Contact</h4>
-                  <a href={`mailto:${profile.email}`} className="dropdown-item">
+                  <a
+                    href={`mailto:${profile?.email || ""}`}
+                    className="dropdown-item"
+                  >
                     <span>📧</span>
-                    <span>{profile.email}</span>
+                    <span>{profile?.email || "Loading..."}</span>
                   </a>
                   <a
-                    href={`https://wa.me/${profile.phone.replace(
+                    href={`https://wa.me/${(profile?.phone || "").replace(
                       /[^0-9]/g,
                       ""
                     )}`}
@@ -174,12 +177,15 @@ function Layout({ children }) {
                     <span>💬</span>
                     <span>WhatsApp</span>
                   </a>
-                  <a href={`tel:${profile.phone}`} className="dropdown-item">
+                  <a
+                    href={`tel:${profile?.phone || ""}`}
+                    className="dropdown-item"
+                  >
                     <span>📱</span>
-                    <span>{profile.phone}</span>
+                    <span>{profile?.phone || "Loading..."}</span>
                   </a>
                   <a
-                    href={`https://${profile.linkedin}`}
+                    href={`https://${profile?.linkedin || ""}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="dropdown-item"
@@ -214,7 +220,7 @@ function Layout({ children }) {
                 <div className="dropdown-divider"></div>
 
                 <div className="dropdown-footer">
-                  <span>📍 {profile.location}</span>
+                  <span>📍 {profile?.location || "Loading..."}</span>
                 </div>
               </div>
             )}
@@ -263,7 +269,7 @@ function Layout({ children }) {
                       <h3>Hard Skills</h3>
                     </div>
                     <div className="pinned-grid">
-                      {skills.hardSkills?.map((skill, index) => {
+                      {skills.hardSkills.hardSkills?.map((skill, index) => {
                         const IconComponent = getTechIcon(skill)
                         return (
                           <div key={index} className="pinned-item">
@@ -283,7 +289,7 @@ function Layout({ children }) {
                       <h3>Soft Skills</h3>
                     </div>
                     <div className="pinned-grid">
-                      {skills.softSkills?.map((skill, index) => {
+                      {skills.softSkills.softSkills?.map((skill, index) => {
                         const IconComponent = getTechIcon(skill)
                         return (
                           <div key={index} className="pinned-item">

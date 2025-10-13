@@ -34,24 +34,8 @@ const fetchAllData = async () => {
     } catch (err) {
       console.error("Failed to fetch data:", err)
       globalError = err.message || "Failed to fetch data"
-
-      // Fallback to static data if API fails
-      try {
-        const { profile, workExperience, skills } = await import(
-          "../data/profile"
-        )
-        const { projects } = await import("../data/projects")
-
-        globalData = {
-          profile,
-          projects,
-          skills,
-          workExperience,
-        }
-        isDataFetched = true
-      } catch (fallbackError) {
-        console.error("Failed to load fallback data:", fallbackError)
-      }
+      // Data remains null/empty if API fails
+      isDataFetched = true
     } finally {
       globalLoading = false
       fetchPromise = null
@@ -97,39 +81,23 @@ export const useApiData = () => {
   }
 }
 
-// Individual data hooks - now just return data from global store
+// Individual data hooks - simplified
 export const useProfile = () => {
-  const { data, loading, error } = useApiData()
-  return {
-    profile: data.profile,
-    loading,
-    error,
-  }
+  const { data } = useApiData()
+  return { profile: data.profile }
 }
 
 export const useProjects = () => {
-  const { data, loading, error } = useApiData()
-  return {
-    projects: data.projects,
-    loading,
-    error,
-  }
+  const { data } = useApiData()
+  return { projects: data.projects }
 }
 
 export const useSkills = () => {
-  const { data, loading, error } = useApiData()
-  return {
-    skills: data.skills,
-    loading,
-    error,
-  }
+  const { data } = useApiData()
+  return { skills: data.skills }
 }
 
 export const useWorkExperience = () => {
-  const { data, loading, error } = useApiData()
-  return {
-    workExperience: data.workExperience,
-    loading,
-    error,
-  }
+  const { data } = useApiData()
+  return { workExperience: data.workExperience }
 }

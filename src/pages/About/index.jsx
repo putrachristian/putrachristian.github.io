@@ -28,9 +28,9 @@ function About() {
           </div>
         </div>
         <div className="about-intro">
-          <h1>{profile?.name || "Loading..."}</h1>
-          <h2 className="subtitle">{profile?.title || "Loading..."}</h2>
-          <p className="intro-text">{profile?.summary || "Loading..."}</p>
+          <h1>{profile?.name || ""}</h1>
+          <h2 className="subtitle">{profile?.title || ""}</h2>
+          <p className="intro-text">{profile?.summary || ""}</p>
         </div>
       </div>
 
