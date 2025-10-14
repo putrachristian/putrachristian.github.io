@@ -12,12 +12,60 @@ import {
   useSkills,
   useWorkExperience,
 } from "../../hooks/useApiData"
+import { memo, useMemo } from "react"
 import "./style.scss"
 
-function About() {
+const About = () => {
   const { profile } = useProfile()
   const { skills } = useSkills()
   const { workExperience } = useWorkExperience()
+
+  // Memoize work experience timeline
+  const experienceTimeline = useMemo(() => {
+    if (!workExperience) return null
+
+    return workExperience
+      .map((exp) => (
+        <div key={exp.id} className="timeline-item">
+          <div className="timeline-marker"></div>
+          <div className="timeline-content">
+            <span className="timeline-period">{exp.period}</span>
+            <h3>{exp.position}</h3>
+            <p className="company">
+              {exp.company} • {exp.location}
+            </p>
+            <p className="description">{exp.description}</p>
+            <ul className="responsibilities">
+              {exp.responsibilities?.map((resp, index) => (
+                <li key={index}>{resp.point}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+      .reverse()
+  }, [workExperience])
+
+  // Memoize skills rendering
+  const hardSkills = useMemo(() => {
+    if (!skills?.hardSkills?.hardSkills) return null
+
+    return skills.hardSkills.hardSkills.map((skill, index) => (
+      <span key={index} className="skill-tag">
+        {skill}
+      </span>
+    ))
+  }, [skills])
+
+  const softSkills = useMemo(() => {
+    if (!skills?.softSkills?.softSkills) return null
+
+    return skills.softSkills.softSkills.map((skill, index) => (
+      <span key={index} className="skill-tag soft">
+        {skill}
+      </span>
+    ))
+  }, [skills])
 
   return (
     <div className="about">
@@ -40,26 +88,7 @@ function About() {
             <Briefcase size={28} />
             <h2>Work Experience</h2>
           </div>
-          <div className="experience-timeline">
-            {workExperience?.map((exp) => (
-              <div key={exp.id} className="timeline-item">
-                <div className="timeline-marker"></div>
-                <div className="timeline-content">
-                  <span className="timeline-period">{exp.period}</span>
-                  <h3>{exp.position}</h3>
-                  <p className="company">
-                    {exp.company} • {exp.location}
-                  </p>
-                  <p className="description">{exp.description}</p>
-                  <ul className="responsibilities">
-                    {exp.responsibilities?.map((resp, index) => (
-                      <li key={index}>{resp}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+          <div className="experience-timeline">{experienceTimeline}</div>
         </section>
 
         <section className="skills-section">
@@ -70,23 +99,11 @@ function About() {
           <div className="skills-content">
             <div className="skill-category">
               <h3>Hard Skills</h3>
-              <div className="skill-tags">
-                {skills?.hardSkills.hardSkills?.map((skill, index) => (
-                  <span key={index} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              <div className="skill-tags">{hardSkills}</div>
             </div>
             <div className="skill-category">
               <h3>Soft Skills</h3>
-              <div className="skill-tags">
-                {skills?.softSkills.softSkills?.map((skill, index) => (
-                  <span key={index} className="skill-tag soft">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              <div className="skill-tags">{softSkills}</div>
             </div>
           </div>
         </section>
@@ -141,4 +158,4 @@ function About() {
   )
 }
 
-export default About
+export default memo(About)

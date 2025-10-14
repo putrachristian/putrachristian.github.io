@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { useEffect } from "react"
 import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import Projects from "./pages/Projects"
 import About from "./pages/About"
+// import PerformanceMonitor from "./components/PerformanceMonitor"
 import { useApiData } from "./hooks/useApiData"
 import "./App.scss"
 
-function App() {
+const App = () => {
   // Initialize data fetching at app level
   useApiData()
 
@@ -20,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </Layout>
+      {/* <PerformanceMonitor /> */}
     </Router>
   )
 }

@@ -26,30 +26,14 @@ body {
 	color: var(--text);
 	line-height: 1.6;
 	overflow: hidden;
+	/* Optimize scrolling performance */
+	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
 }
 
 #root {
 	height: 100vh;
 	overflow: hidden;
-}
-
-::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 10px;
-	backdrop-filter: blur(10px);
-
-	&:hover {
-		background: rgba(255, 255, 255, 0.3);
-	}
 }
 
 ::selection {
@@ -66,6 +50,9 @@ img {
 	max-width: 100%;
 	height: auto;
 	display: block;
+	/* Optimize image rendering */
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
 }
 
 .glass {

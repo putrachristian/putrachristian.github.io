@@ -1,34 +1,16 @@
 import { Link, useLocation } from "react-router-dom"
-import {
-  Home,
-  FolderGit2,
-  User,
-  ChevronDown,
-  Grid3x3,
-  Code,
-  Palette,
-  Database,
-  Settings,
-  Monitor,
-  Smartphone,
-  Globe,
-  Zap,
-  GitBranch,
-  Package,
-  Shield,
-  Users,
-  Lightbulb,
-  Clock,
-  Target,
-} from "lucide-react"
-import { useState, useRef, useEffect } from "react"
-import { useProfile, useSkills } from "../../hooks/useApiData"
+import { FaChevronDown } from "react-icons/fa"
+import { useState, useRef, useEffect, useCallback, memo } from "react"
+import { useProfile } from "../../hooks/useApiData"
+import { useScrollOptimization } from "../../hooks/useScrollOptimization"
 import profilePhoto from "../../assets/putra_photo.png"
 import resumeThumbnail from "../../assets/putra_christian_resume.jpg"
 import resumePDF from "../../assets/putra_christian_resume.pdf"
+import Dock from "../Dock"
+import StartMenu from "../StartMenu"
 import "./style.scss"
 
-function Layout({ children }) {
+const Layout = ({ children }) => {
   const location = useLocation()
   const [profileMenuOpen, setProfileMenuOpen] = useState(false)
   const [startMenuOpen, setStartMenuOpen] = useState(false)
@@ -38,14 +20,12 @@ function Layout({ children }) {
 
   // API data hooks
   const { profile } = useProfile()
-  const { skills } = useSkills()
 
-  const navItems = [
-    { path: "/", label: "Home", icon: Home },
-    { path: "/projects", label: "Projects", icon: FolderGit2 },
-    { path: "/about", label: "About", icon: User },
-  ]
+  // Scroll optimization
+  const { optimizeScrollContainer } = useScrollOptimization()
+  const mainContentRef = useRef(null)
 
+  // Optimize timer to only update when needed
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date())
@@ -53,73 +33,52 @@ function Layout({ children }) {
     return () => clearInterval(timer)
   }, [])
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setProfileMenuOpen(false)
-      }
-      if (startRef.current && !startRef.current.contains(event.target)) {
-        setStartMenuOpen(false)
-      }
+  // Memoize click outside handler
+  const handleClickOutside = useCallback((event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setProfileMenuOpen(false)
     }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
+    if (startRef.current && !startRef.current.contains(event.target)) {
+      setStartMenuOpen(false)
+    }
   }, [])
 
-  const formatFullDateTime = (date) => {
-    const weekday = date.toLocaleDateString("en-US", { weekday: "long" })
-    const day = date.getDate()
-    const month = date.toLocaleDateString("en-US", { month: "long" })
-    const year = date.getFullYear()
-    const time = date.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    })
-    return `${weekday} ${day} ${month} ${year} ${time}`
-  }
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [handleClickOutside])
 
-  const handleDownloadResume = () => {
+  // Optimize scroll container on mount
+  useEffect(() => {
+    if (mainContentRef.current) {
+      optimizeScrollContainer(mainContentRef.current)
+    }
+  }, [optimizeScrollContainer])
+
+  // Memoize expensive functions
+  const formatDateTime = useCallback(
+    (date) =>
+      `${date.toLocaleDateString("en-US", {
+        weekday: "long",
+      })} ${date.getDate()} ${date.toLocaleDateString("en-US", {
+        month: "long",
+      })} ${date.getFullYear()} ${date.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      })}`,
+    []
+  )
+
+  const downloadResume = useCallback(() => {
     const link = document.createElement("a")
     link.href = resumePDF
     link.download = "putra_christian_resume.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-  }
-
-  const getTechIcon = (skill) => {
-    const iconMap = {
-      "JavaScript (ES6+)": Code,
-      HTML5: Globe,
-      CSS3: Palette,
-      "React.js": Zap,
-      Redux: Settings,
-      "Node.js (basic)": Database,
-      Sass: Palette,
-      "Styled-Components": Palette,
-      "CSS-in-JS": Palette,
-      Bootstrap: Monitor,
-      Git: GitBranch,
-      "npm/yarn/bun": Package,
-      Webpack: Package,
-      Babel: Package,
-      "RESTful APIs": Globe,
-      "Single-Page Applications (SPA)": Monitor,
-      "Responsive Web Design": Smartphone,
-      "Performance Optimization": Zap,
-      "Cross-browser compatibility": Monitor,
-      "Problem Solving": Lightbulb,
-      "Collaboration & Teamwork": Users,
-      Adaptability: Target,
-      "Attention to Detail": Shield,
-      "Time Management": Clock,
-      "Communication (Written & Verbal)": Users,
-    }
-    return iconMap[skill] || Code
-  }
+  }, [])
 
   return (
     <div className="layout">
@@ -136,7 +95,7 @@ function Layout({ children }) {
               <span className="profile-name">
                 {profile?.name?.split(" ")[0] || "User"}
               </span>
-              <ChevronDown
+              <FaChevronDown
                 size={16}
                 className={`chevron ${profileMenuOpen ? "rotate" : ""}`}
               />
@@ -231,7 +190,7 @@ function Layout({ children }) {
           <div className="menu-bar-right">
             <div className="datetime-display">
               <span className="datetime-full">
-                {formatFullDateTime(currentTime)}
+                {formatDateTime(currentTime)}
               </span>
             </div>
           </div>
@@ -240,7 +199,7 @@ function Layout({ children }) {
 
       {location.pathname === "/" && (
         <div className="desktop-icons">
-          <button className="desktop-icon" onClick={handleDownloadResume}>
+          <button className="desktop-icon" onClick={downloadResume}>
             <div className="icon-wrapper">
               <img src={resumeThumbnail} alt="Resume" />
             </div>
@@ -249,119 +208,23 @@ function Layout({ children }) {
         </div>
       )}
 
-      <main className="main-content">
+      <main className="main-content" ref={mainContentRef}>
         <div className="container">{children}</div>
       </main>
 
-      {startMenuOpen && (
-        <div
-          className="start-menu-overlay"
-          onClick={() => setStartMenuOpen(false)}
-        >
-          <div className="start-menu" onClick={(e) => e.stopPropagation()}>
-            {/* Main Content */}
-            <div className="start-main-content">
-              {skills && (
-                <>
-                  {/* Hard Skills Section */}
-                  <div className="start-section">
-                    <div className="section-header">
-                      <h3>Hard Skills</h3>
-                    </div>
-                    <div className="pinned-grid">
-                      {skills.hardSkills.hardSkills?.map((skill, index) => {
-                        const IconComponent = getTechIcon(skill)
-                        return (
-                          <div key={index} className="pinned-item">
-                            <div className="pinned-icon">
-                              <IconComponent size={24} />
-                            </div>
-                            <span className="pinned-label">{skill}</span>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
+      <StartMenu
+        startMenuOpen={startMenuOpen}
+        setStartMenuOpen={setStartMenuOpen}
+        profile={profile}
+      />
 
-                  {/* Soft Skills Section */}
-                  <div className="start-section">
-                    <div className="section-header">
-                      <h3>Soft Skills</h3>
-                    </div>
-                    <div className="pinned-grid">
-                      {skills.softSkills.softSkills?.map((skill, index) => {
-                        const IconComponent = getTechIcon(skill)
-                        return (
-                          <div key={index} className="pinned-item">
-                            <div className="pinned-icon">
-                              <IconComponent size={24} />
-                            </div>
-                            <span className="pinned-label">{skill}</span>
-                          </div>
-                        )
-                      })}
-                      <div className="pinned-item">
-                        <div className="pinned-icon">
-                          <FolderGit2 size={24} />
-                        </div>
-                        <span className="pinned-label">My Projects</span>
-                      </div>
-                      <div className="pinned-item">
-                        <div className="pinned-icon">
-                          <User size={24} />
-                        </div>
-                        <span className="pinned-label">About Me</span>
-                      </div>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Footer */}
-            <div className="start-footer">
-              <div className="footer-user">
-                <div className="footer-avatar">
-                  <img src={profilePhoto} alt={profile?.name || "User"} />
-                </div>
-                <span className="footer-name">{profile?.name || "User"}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <nav className="dock">
-        <div className="dock-container">
-          <button
-            ref={startRef}
-            className={`dock-item start-button ${
-              startMenuOpen ? "active" : ""
-            }`}
-            title="Start"
-            onClick={() => setStartMenuOpen(!startMenuOpen)}
-          >
-            <Grid3x3 size={28} />
-          </button>
-
-          <div className="dock-divider"></div>
-
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`dock-item ${
-                location.pathname === item.path ? "active" : ""
-              }`}
-              title={item.label}
-            >
-              <item.icon size={28} />
-            </Link>
-          ))}
-        </div>
-      </nav>
+      <Dock
+        startMenuOpen={startMenuOpen}
+        setStartMenuOpen={setStartMenuOpen}
+        startRef={startRef}
+      />
     </div>
   )
 }
 
-export default Layout
+export default memo(Layout)
