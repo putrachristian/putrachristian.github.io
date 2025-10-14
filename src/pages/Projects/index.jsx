@@ -70,16 +70,6 @@ const ProjectCard = memo(({ project, onOpenModal }) => (
     <div className="project-content">
       <h3>{project.title}</h3>
       <p>{project.description.substring(0, 120)}...</p>
-      <div className="project-meta">
-        <span className="meta-item">
-          <Briefcase size={16} />
-          {project.company}
-        </span>
-        <span className="meta-item">
-          <Calendar size={16} />
-          {project.year}
-        </span>
-      </div>
     </div>
   </div>
 ))
