@@ -19,13 +19,13 @@ const contactInfo = (profile) => {
       icon: Linkedin,
       label: "LinkedIn",
       value: profile?.linkedin,
-      href: `https://www.linkedin.com/in/${profile?.linkedin}`,
+      href: profile?.linkedin,
     },
     {
       icon: MapPin,
       label: "Location",
       value: profile?.location,
-      href: "#",
+      href: "#contact",
     },
   ]
 }
