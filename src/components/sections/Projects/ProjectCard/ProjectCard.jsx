@@ -20,8 +20,7 @@ export const ProjectCard = ({ project, index, onProjectClick }) => {
         whileHover={{ y: -10 }}
         className="relative backdrop-blur-xl bg-white/5 rounded-2xl border border-white/10 overflow-hidden"
       >
-        {/* 16:9 Image */}
-        <div className="relative aspect-video overflow-hidden">
+        <div className="relative overflow-hidden">
           <motion.img
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.6 }}
