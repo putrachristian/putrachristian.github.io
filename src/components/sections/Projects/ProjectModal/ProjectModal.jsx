@@ -67,7 +67,7 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
                   </div>
 
                   {/* Screenshot carousel */}
-                  <div className="relative aspect-video max-w-4xl mx-auto rounded-2xl overflow-hidden bg-black/20">
+                  <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden bg-black/20">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={currentSlide}
