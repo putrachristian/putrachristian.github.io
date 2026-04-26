@@ -1,13 +1,14 @@
-import type { PortfolioData } from '../../types'
+import type { AvatarAsset, PortfolioData } from '../../types'
 import { AIChatWidget } from '../AIChatWidget'
 import { ContactMailForm } from '../ContactMailForm'
 
 type ContactSectionProps = {
   data: PortfolioData
   primaryEmailHref: string
+  chatAvatar: AvatarAsset
 }
 
-export function ContactSection({ data, primaryEmailHref }: ContactSectionProps) {
+export function ContactSection({ data, primaryEmailHref, chatAvatar }: ContactSectionProps) {
   const contactLinks = data.profile.contactLinks ?? []
   const visibleLinks = contactLinks.filter((link) => link.label.toLowerCase() !== 'website')
 
@@ -33,7 +34,7 @@ export function ContactSection({ data, primaryEmailHref }: ContactSectionProps) 
           </div>
           <ContactMailForm emailHref={primaryEmailHref} />
         </div>
-        <AIChatWidget contactLinks={contactLinks} />
+        <AIChatWidget contactLinks={contactLinks} avatar={chatAvatar} />
       </div>
     </section>
   )

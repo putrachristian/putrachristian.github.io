@@ -18,6 +18,22 @@ const stat = defineArrayMember({
   ],
 })
 
+const avatarImageFields = [
+  defineField({ name: 'alt', type: 'string' }),
+  defineField({
+    name: 'uploadedImage',
+    title: 'Uploaded image',
+    type: 'image',
+    options: { hotspot: true },
+  }),
+  defineField({
+    name: 'src',
+    title: 'Fallback URL',
+    type: 'string',
+    description: 'Use a public URL or /public path. Uploaded image is used first when both are filled.',
+  }),
+]
+
 const screenshot = defineArrayMember({
   type: 'object',
   fields: [
@@ -49,8 +65,46 @@ export const siteProfileType = defineType({
     defineField({ name: 'location', type: 'string' }),
     defineField({ name: 'availability', type: 'string' }),
     defineField({ name: 'resumeUrl', type: 'string' }),
-    defineField({ name: 'avatarUrl', type: 'string' }),
+    defineField({
+      name: 'avatarFile',
+      title: 'Home avatar upload',
+      type: 'file',
+      description: 'Upload the home avatar video here. This is used before Avatar image and Avatar URL.',
+    }),
+    defineField({
+      name: 'avatarImage',
+      title: 'Home avatar image upload',
+      type: 'image',
+      options: { hotspot: true },
+      description: 'Optional image fallback if you do not use a video.',
+    }),
+    defineField({
+      name: 'avatarUrl',
+      title: 'Home avatar fallback URL',
+      type: 'string',
+      description: 'Use a public URL or /public path. Upload fields are used first.',
+    }),
+    defineField({ name: 'avatarPosterUrl', title: 'Home video poster URL', type: 'string' }),
     defineField({ name: 'avatarAlt', type: 'string' }),
+    defineField({
+      name: 'chatAvatarImage',
+      title: 'AI chat avatar upload',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({ name: 'chatAvatarUrl', title: 'AI chat avatar fallback URL', type: 'string' }),
+    defineField({ name: 'chatAvatarAlt', title: 'AI chat avatar alt text', type: 'string' }),
+    defineField({
+      name: 'sectionAvatars',
+      title: 'Floating section avatars',
+      type: 'object',
+      fields: [
+        defineField({ name: 'projects', title: 'Projects avatar', type: 'object', fields: avatarImageFields }),
+        defineField({ name: 'talks', title: 'Talks avatar', type: 'object', fields: avatarImageFields }),
+        defineField({ name: 'about', title: 'About avatar', type: 'object', fields: avatarImageFields }),
+        defineField({ name: 'contact', title: 'Contact avatar', type: 'object', fields: avatarImageFields }),
+      ],
+    }),
     defineField({ name: 'contactLinks', type: 'array', of: [contactLink] }),
     defineField({ name: 'stats', type: 'array', of: [stat] }),
   ],

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import portfolioData from './data/portfolio.json'
-import type { PortfolioData } from './types'
+import type { PortfolioData, ProfileData } from './types'
+import { AVATARS } from './assets'
 import { AmbientBackground } from './components/AmbientBackground'
 import { ConsoleShell } from './components/ConsoleShell'
 import { IntroOverlay } from './components/IntroOverlay'
@@ -32,6 +33,7 @@ type DockItem = {
 type SectionAvatar = {
   section: SectionId
   src: string
+  alt: string
   modifier: string
 }
 
@@ -44,13 +46,6 @@ const DOCK_ITEMS: DockItem[] = [
   { id: 'chat', label: 'AI', mobileOnly: true },
 ]
 
-const SECTION_AVATARS: SectionAvatar[] = [
-  { section: 'projects', src: '/avatar1.png', modifier: 'projects' },
-  { section: 'talks', src: '/avatar2.png', modifier: 'talks' },
-  { section: 'about', src: '/avatar3.png', modifier: 'about' },
-  { section: 'contact', src: '/avatar4.png', modifier: 'contact' },
-]
-
 function shouldShowIntroOnMount() {
   if (typeof window === 'undefined') {
     return false
@@ -61,6 +56,35 @@ function shouldShowIntroOnMount() {
   }
 
   return window.sessionStorage?.getItem(INTRO_SESSION_KEY) !== '1'
+}
+
+function getSectionAvatars(profile: ProfileData): SectionAvatar[] {
+  return [
+    {
+      section: 'projects',
+      src: profile.sectionAvatars?.projects?.src ?? AVATARS.sectionProjects,
+      alt: profile.sectionAvatars?.projects?.alt ?? '',
+      modifier: 'projects',
+    },
+    {
+      section: 'talks',
+      src: profile.sectionAvatars?.talks?.src ?? AVATARS.sectionTalks,
+      alt: profile.sectionAvatars?.talks?.alt ?? '',
+      modifier: 'talks',
+    },
+    {
+      section: 'about',
+      src: profile.sectionAvatars?.about?.src ?? AVATARS.sectionAbout,
+      alt: profile.sectionAvatars?.about?.alt ?? '',
+      modifier: 'about',
+    },
+    {
+      section: 'contact',
+      src: profile.sectionAvatars?.contact?.src ?? AVATARS.sectionContact,
+      alt: profile.sectionAvatars?.contact?.alt ?? '',
+      modifier: 'contact',
+    },
+  ]
 }
 
 function App() {
@@ -130,6 +154,14 @@ function App() {
     () => data.profile.contactLinks.find((link) => link.href.startsWith('mailto:'))?.href ?? FALLBACK_EMAIL_HREF,
     [data.profile.contactLinks],
   )
+  const sectionAvatars = useMemo(() => getSectionAvatars(data.profile), [data.profile])
+  const chatAvatar = useMemo(
+    () => ({
+      src: data.profile.chatAvatarUrl ?? AVATARS.chat,
+      alt: data.profile.chatAvatarAlt ?? `${data.profile.name} avatar`,
+    }),
+    [data.profile.chatAvatarAlt, data.profile.chatAvatarUrl, data.profile.name],
+  )
 
   const handleSectionChange = (nextSection: SectionId) => {
     if (nextSection !== activeSection) {
@@ -157,9 +189,9 @@ function App() {
       case 'talks':
         return <TalksSection speaking={data.speaking} onPosterClick={setActiveTalkPoster} />
       case 'chat':
-        return <ChatSection contactLinks={data.profile.contactLinks} />
+        return <ChatSection contactLinks={data.profile.contactLinks} avatar={chatAvatar} />
       case 'contact':
-        return <ContactSection data={data} primaryEmailHref={primaryEmailHref} />
+        return <ContactSection data={data} primaryEmailHref={primaryEmailHref} chatAvatar={chatAvatar} />
     }
   }
 
@@ -173,7 +205,7 @@ function App() {
 
       <main className="console-wrap" aria-hidden={showIntro ? true : undefined}>
         <section className="console-screen">
-          {SECTION_AVATARS.map(({ section, src, modifier }) => (
+          {sectionAvatars.map(({ section, src, alt, modifier }) => (
             <div
               key={section}
               className={`screen-kv-avatar screen-kv-avatar--${modifier} ${
@@ -181,7 +213,7 @@ function App() {
               }`}
               aria-hidden="true"
             >
-              <img src={src} alt="" className="screen-kv-avatar-image" />
+              <img src={src} alt={alt} className="screen-kv-avatar-image" />
             </div>
           ))}
 

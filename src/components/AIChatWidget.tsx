@@ -1,6 +1,7 @@
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from 'react'
-import type { ChatHistoryEntry, ChatResponse, ContactLink } from '../types'
+import type { AvatarAsset, ChatHistoryEntry, ChatResponse, ContactLink } from '../types'
 import { sendChatMessage } from '../utils/chat'
+import { AVATARS } from '../assets'
 
 const MAX_HISTORY_TURNS = 8
 
@@ -14,6 +15,7 @@ type Message = {
 
 type AIChatWidgetProps = {
   contactLinks: ContactLink[]
+  avatar: AvatarAsset
 }
 
 function createTimeLabel() {
@@ -37,12 +39,14 @@ const suggestedPrompts = [
   'How do you collaborate with designers?',
 ]
 
-export function AIChatWidget({ contactLinks }: AIChatWidgetProps) {
+export function AIChatWidget({ contactLinks, avatar }: AIChatWidgetProps) {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [messages, setMessages] = useState<Message[]>([welcomeMessage])
   const [error, setError] = useState<string | null>(null)
   const threadRef = useRef<HTMLDivElement>(null)
+  const avatarSrc = avatar.src ?? AVATARS.chat
+  const avatarAlt = avatar.alt ?? 'Putra Christian avatar'
 
   useEffect(() => {
     threadRef.current?.scrollTo({ top: threadRef.current.scrollHeight, behavior: 'smooth' })
@@ -116,7 +120,7 @@ export function AIChatWidget({ contactLinks }: AIChatWidgetProps) {
     <aside id="portfolio-chat-panel" className="chat-panel chat-embedded" aria-label="Portfolio assistant">
       <div className="chat-panel-header">
         <div className="chat-panel-contact">
-          <img src="/avatar5.png" alt="Putra Christian avatar" className="chat-contact-avatar" />
+          <img src={avatarSrc} alt={avatarAlt} className="chat-contact-avatar" />
           <div>
             <h3>Putra Christian</h3>
             <p className="chat-contact-status">Replies from AI</p>
@@ -127,7 +131,7 @@ export function AIChatWidget({ contactLinks }: AIChatWidgetProps) {
       <div className="chat-thread" ref={threadRef}>
         {messages.map((message) => (
           <div key={message.id} className={`chat-message-row ${message.role}`}>
-            {message.role === 'assistant' ? <img src="/avatar5.png" alt="" className="chat-message-avatar" /> : null}
+            {message.role === 'assistant' ? <img src={avatarSrc} alt="" className="chat-message-avatar" /> : null}
             <article className={`chat-bubble ${message.role}`}>
               <p>{message.content}</p>
               {message.meta?.fallbackToContact ? (
@@ -146,7 +150,7 @@ export function AIChatWidget({ contactLinks }: AIChatWidgetProps) {
 
         {loading ? (
           <div className="chat-message-row assistant">
-            <img src="/avatar5.png" alt="" className="chat-message-avatar" />
+            <img src={avatarSrc} alt="" className="chat-message-avatar" />
             <article className="chat-bubble assistant loading">
               <div className="chat-typing-dots" aria-label="Assistant is typing">
                 <span />

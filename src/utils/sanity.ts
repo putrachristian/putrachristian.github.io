@@ -16,8 +16,29 @@ const portfolioQuery = `{
       location,
       availability,
       resumeUrl,
-      avatarUrl,
+      "avatarUrl": coalesce(avatarFile.asset->url, avatarImage.asset->url, avatarUrl),
+      avatarPosterUrl,
       avatarAlt,
+      "chatAvatarUrl": coalesce(chatAvatarImage.asset->url, chatAvatarUrl),
+      chatAvatarAlt,
+      "sectionAvatars": {
+        "projects": {
+          "src": coalesce(sectionAvatars.projects.uploadedImage.asset->url, sectionAvatars.projects.src),
+          "alt": sectionAvatars.projects.alt
+        },
+        "talks": {
+          "src": coalesce(sectionAvatars.talks.uploadedImage.asset->url, sectionAvatars.talks.src),
+          "alt": sectionAvatars.talks.alt
+        },
+        "about": {
+          "src": coalesce(sectionAvatars.about.uploadedImage.asset->url, sectionAvatars.about.src),
+          "alt": sectionAvatars.about.alt
+        },
+        "contact": {
+          "src": coalesce(sectionAvatars.contact.uploadedImage.asset->url, sectionAvatars.contact.src),
+          "alt": sectionAvatars.contact.alt
+        }
+      },
       "contactLinks": coalesce(contactLinks[]{label, href}, []),
       "stats": coalesce(stats[]{label, value}, [])
     },

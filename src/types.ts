@@ -8,6 +8,18 @@ export type Stat = {
   value: string
 }
 
+export type AvatarAsset = {
+  src?: string | null
+  alt?: string
+}
+
+export type SectionAvatarAssets = {
+  projects?: AvatarAsset
+  talks?: AvatarAsset
+  about?: AvatarAsset
+  contact?: AvatarAsset
+}
+
 export type Screenshot = {
   alt?: string
   src: string | null
@@ -75,7 +87,11 @@ export type ProfileData = {
   availability: string
   resumeUrl: string
   avatarUrl?: string | null
+  avatarPosterUrl?: string | null
   avatarAlt?: string
+  chatAvatarUrl?: string | null
+  chatAvatarAlt?: string
+  sectionAvatars?: SectionAvatarAssets
   contactLinks: ContactLink[]
   stats: Stat[]
 }

@@ -7,8 +7,28 @@
     "location": "Jakarta, Indonesia",
     "availability": "Open to freelance, contract, and creative collaborations.",
     "resumeUrl": "/putra-christian-resume.pdf",
-    "avatarUrl": "/avatar.mp4",
+    "avatarUrl": "/avatars/profile.mp4",
     "avatarAlt": "Animated avatar video for Putra Christian",
+    "chatAvatarUrl": "/avatars/chat.png",
+    "chatAvatarAlt": "Putra Christian avatar",
+    "sectionAvatars": {
+      "projects": {
+        "src": "/avatars/section-projects.png",
+        "alt": ""
+      },
+      "talks": {
+        "src": "/avatars/section-talks.png",
+        "alt": ""
+      },
+      "about": {
+        "src": "/avatars/section-about.png",
+        "alt": ""
+      },
+      "contact": {
+        "src": "/avatars/section-contact.png",
+        "alt": ""
+      }
+    },
     "contactLinks": [
       {
         "label": "Email",
@@ -86,7 +106,7 @@
       "period": "Mar 2021",
       "role": "Speaker",
       "summary": "Delivered a public webinar about building a personal page with React JS.",
-      "posterUrl": "/1.png",
+      "posterUrl": "/talks/react-personal-page.png",
       "posterAlt": "Poster for the Create Your Own Personal Page with React JS webinar."
     },
     {
@@ -95,7 +115,7 @@
       "period": "Jun 2021",
       "role": "Speaker",
       "summary": "Shared frontend web development principles in a collaborative workshop setting.",
-      "posterUrl": "/2.jpg",
+      "posterUrl": "/talks/belajar-game-garena.jpg",
       "posterAlt": "Poster for the Belajar bikin game bareng Garena webinar."
     },
     {
@@ -104,7 +124,7 @@
       "period": "Feb 2024",
       "role": "Guest Speaker",
       "summary": "Presented practical frontend thinking and best practices for interactive web-based experiences.",
-      "posterUrl": "/3.jpg",
+      "posterUrl": "/talks/web-game-talk.jpg",
       "posterAlt": "Poster for the How to Develop a Web Game talk."
     }
   ],
