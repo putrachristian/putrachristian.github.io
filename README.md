@@ -1,73 +1,70 @@
-# Cinematic Portfolio
+# Putra Christian
 
-One-page React + Vite portfolio designed for premium game event frontend work, with a grounded AI assistant that answers from curated portfolio and resume content.
+Creative Front-End Developer based in Jakarta, Indonesia.
 
-## Run locally
+I build responsive websites, interactive interfaces, and digital experiences that mix personality with clarity. I like frontend that feels alive: sometimes through bold layouts, sometimes through tiny interaction details, and sometimes by making something clearer, faster, and more enjoyable to use.
 
-```bash
-npm install
-npm run dev
-```
+My professional background includes years of shipping production work in a fast-moving environment at Garena, especially around web events, gamification, responsive UI, and polished interactive experiences. I do not want to be boxed into one niche; the same strengths can fit product sites, branded campaigns, landing pages, interactive websites, and other digital experiences.
 
-## Build
+## What I Do
 
-```bash
-npm run build
-```
+- Frontend development for responsive web experiences
+- Interactive UI implementation
+- Web event and gamification interfaces
+- Visual polish and layout refinement
+- Component-based React development
+- Performance-minded frontend work
+- Turning visual ideas into real, usable interfaces
 
-## Content editing
+## Core Stack
 
-Update these files to replace placeholders with real content:
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- React.js
+- Redux
+- Node.js
+- Next.js
 
-- `src/data/portfolio.json`
-- `src/data/knowledge.json`
+## Interface Strengths
 
-Project screenshots can be added by replacing `null` in each `screenshots[].src` field with a local asset path or hosted image URL.
+- Responsive Web Design
+- Single-Page Applications
+- Visual Hierarchy
+- Interaction Design Thinking
+- Cross-browser Compatibility
+- RESTful APIs
+- Component Systems
+- UI Polish
 
-## AI assistant configuration
+## Experience
 
-The chat widget works immediately with local grounded matching logic. To connect Google Gemini Flash Lite through the Gemini API, provide environment variables:
+**Front End Software Engineer II**  
+PT. Garena Indonesia  
+Feb 2022 - Present
 
-```bash
-GEMINI_API_KEY=
-GEMINI_MODEL=gemini-2.5-flash-lite
-GEMINI_SYSTEM_PROMPT=
-VITE_CHAT_MODE=auto
-VITE_CONTACT_MODE=auto
-VITE_GEMINI_API_KEY=
-VITE_GEMINI_MODEL=gemini-2.5-flash-lite
-VITE_GEMINI_SYSTEM_PROMPT=
-```
+Building responsive web interfaces and gamification features for major game titles, with a focus on React.js, Redux, JavaScript, performance, and production-ready frontend delivery.
 
-The serverless endpoint lives in `api/chat.js`. By default it calls the Gemini `generateContent` API with `gemini-2.5-flash-lite`, and it still falls back to local grounded matching if the external model is unavailable.
+**Front End Web Developer**  
+PT. Garena Indonesia  
+Feb 2019 - Feb 2022
 
-For local-only browser testing without `/api/chat`, you can use:
+Built and maintained frontend experiences in a fast-moving production environment, collaborating with designers, backend developers, and product stakeholders.
 
-```bash
-VITE_CHAT_MODE=direct
-VITE_GEMINI_API_KEY=your_key_here
-VITE_GEMINI_MODEL=gemini-2.5-flash-lite
-```
+**Internship Front End Web Developer**  
+PT. Garena Indonesia  
+Aug 2018 - Jan 2019
 
-This sends requests straight from the browser to Gemini and exposes the key client-side, so only use it for local testing.
+Supported UI implementation, static page development, testing, and debugging.
 
-## Static hosting note
+## Talks And Workshops
 
-GitHub Pages is static-only, so `/api/chat` and `/api/contact` do not run there.
+- Create Your Own Personal Page with React JS, AMBIZ x Himpunan Mahasiswa Informatika ITB
+- Belajar bikin game bareng Garena, Skilvul
+- How to Develop a Web Game, Skilvul
 
-- `VITE_CHAT_MODE=auto` uses local grounded answers on `github.io`
-- `VITE_CONTACT_MODE=auto` opens the visitor's email app instead of calling `/api/contact`
+## Contact
 
-If you deploy the same frontend on a host with serverless functions, you can set:
-
-```bash
-VITE_CHAT_MODE=server
-VITE_CONTACT_MODE=server
-```
-
-If you use GitHub Pages with a custom domain and still want static behavior, set:
-
-```bash
-VITE_CHAT_MODE=local
-VITE_CONTACT_MODE=mailto
-```
+- Email: putra3christian@gmail.com
+- LinkedIn: https://linkedin.com/in/putra-christian/
+- Portfolio: https://putrachristian.github.io/
