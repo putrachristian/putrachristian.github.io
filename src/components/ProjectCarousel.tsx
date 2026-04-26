@@ -87,7 +87,8 @@ export function ProjectCarousel({ projects, isLoading = false }: ProjectCarousel
   const [activeIndex, setActiveIndex] = useState(0)
   const [openProject, setOpenProject] = useState<ProjectEntry | null>(null)
 
-  const activeProject = projects[activeIndex]
+  const safeProjects = projects.filter((project) => project.title && project.slug)
+  const activeProject = safeProjects[activeIndex]
 
   if (isLoading) {
     return <ProjectCarouselSkeleton />
@@ -98,21 +99,22 @@ export function ProjectCarousel({ projects, isLoading = false }: ProjectCarousel
   }
 
   const goPrev = () => {
-    setActiveIndex((current) => (current - 1 + projects.length) % projects.length)
+    setActiveIndex((current) => (current - 1 + safeProjects.length) % safeProjects.length)
   }
 
   const goNext = () => {
-    setActiveIndex((current) => (current + 1) % projects.length)
+    setActiveIndex((current) => (current + 1) % safeProjects.length)
   }
 
   return (
     <div className="project-carousel-shell">
       <div className="project-carousel-stage">
-        {projects.map((project, index) => {
-          const offset = getWrappedOffset(index, activeIndex, projects.length)
+        {safeProjects.map((project, index) => {
+          const screenshots = project.screenshots ?? []
+          const offset = getWrappedOffset(index, activeIndex, safeProjects.length)
           const isVisible = Math.abs(offset) <= VISIBLE_OFFSET
           const isActive = offset === 0
-          const preview = project.screenshots[0]
+          const preview = screenshots[0]
           const style = {
             ...buildCardStyle(offset),
             '--accent': project.accent ?? DEFAULT_ACCENT,
@@ -152,7 +154,7 @@ export function ProjectCarousel({ projects, isLoading = false }: ProjectCarousel
         </button>
         <div className="carousel-indicator">
           <span>{String(activeIndex + 1).padStart(2, '0')}</span>
-          <small>/ {String(projects.length).padStart(2, '0')}</small>
+          <small>/ {String(safeProjects.length).padStart(2, '0')}</small>
         </div>
         <button type="button" className="carousel-nav" onClick={goNext} aria-label="Next project">
           Next
@@ -174,7 +176,7 @@ export function ProjectCarousel({ projects, isLoading = false }: ProjectCarousel
 
 function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
-  const screenshots = project.screenshots.filter((screenshot) => screenshot.src)
+  const screenshots = (project.screenshots ?? []).filter((screenshot) => screenshot.src)
   const activeScreenshot = screenshots[activeImageIndex]
 
   useEffect(() => {

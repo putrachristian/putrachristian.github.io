@@ -18,8 +18,8 @@ const portfolioQuery = `{
       resumeUrl,
       avatarUrl,
       avatarAlt,
-      contactLinks[]{label, href},
-      stats[]{label, value}
+      "contactLinks": coalesce(contactLinks[]{label, href}, []),
+      "stats": coalesce(stats[]{label, value}, [])
     },
     *[_type == "portfolio"][0].profile
   ),
@@ -30,7 +30,7 @@ const portfolioQuery = `{
       headlineEmphasis,
       headlineSuffix,
       subheadline,
-      badges
+      "badges": coalesce(badges, [])
     },
     *[_type == "portfolio"][0].hero
   ),
@@ -39,8 +39,8 @@ const portfolioQuery = `{
       title,
       company,
       period,
-      summary,
-      highlights
+      "summary": coalesce(summary, ""),
+      "highlights": coalesce(highlights, [])
     },
     *[_type == "portfolio"][0].experience
   ),
@@ -50,7 +50,7 @@ const portfolioQuery = `{
       organization,
       period,
       role,
-      summary,
+      "summary": coalesce(summary, ""),
       posterUrl,
       posterAlt
     },
@@ -59,25 +59,25 @@ const portfolioQuery = `{
   "skills": select(
     count(*[_type == "skillGroup"]) > 0 => *[_type == "skillGroup"] | order(order asc, _createdAt asc){
       group,
-      items
+      "items": coalesce(items, [])
     },
     *[_type == "portfolio"][0].skills
   ),
   "process": select(
     count(*[_type == "processStep"]) > 0 => *[_type == "processStep"] | order(order asc, _createdAt asc){
       title,
-      description
+      "description": coalesce(description, "")
     },
     *[_type == "portfolio"][0].process
   ),
   "chatPrompts": select(
-    defined(*[_type == "chatSettings"][0]._id) => *[_type == "chatSettings"][0].chatPrompts,
-    *[_type == "portfolio"][0].chatPrompts
+    defined(*[_type == "chatSettings"][0]._id) => coalesce(*[_type == "chatSettings"][0].chatPrompts, []),
+    coalesce(*[_type == "portfolio"][0].chatPrompts, [])
   ),
   "faqs": select(
     count(*[_type == "faq"]) > 0 => *[_type == "faq"] | order(order asc, _createdAt asc){
       question,
-      answer
+      "answer": coalesce(answer, "")
     },
     *[_type == "portfolio"][0].faqs
   ),
@@ -85,20 +85,20 @@ const portfolioQuery = `{
     count(*[_type == "project"]) > 0 => *[_type == "project"] | order(order asc, _createdAt asc){
       slug,
       title,
-      summary,
-      screenshots[]{
+      "summary": coalesce(summary, ""),
+      "screenshots": coalesce(screenshots[]{
         alt,
         "src": coalesce(uploadedImage.asset->url, src)
-      }
+      }, [])
     },
     *[_type == "portfolio"][0].projects[]{
       slug,
       title,
-      summary,
-      screenshots[]{
+      "summary": coalesce(summary, ""),
+      "screenshots": coalesce(screenshots[]{
         alt,
         "src": coalesce(uploadedImage.asset->url, src)
-      }
+      }, [])
     }
   )
 }`

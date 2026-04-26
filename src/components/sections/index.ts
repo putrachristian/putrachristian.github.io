@@ -1,0 +1,6 @@
+export { AboutSection } from './AboutSection'
+export { ChatSection } from './ChatSection'
+export { ContactSection } from './ContactSection'
+export { HomeSection } from './HomeSection'
+export { ProjectsSection } from './ProjectsSection'
+export { TalksSection } from './TalksSection'
