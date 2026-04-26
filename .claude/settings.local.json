@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(mkdir -p avatars talks)",
+      "Bash(mv avatar.mp4 avatars/profile.mp4)",
+      "Bash(mv avatar1.png avatars/section-projects.png)",
+      "Bash(mv avatar2.png avatars/section-talks.png)",
+      "Bash(mv avatar3.png avatars/section-about.png)"
+    ]
+  }
+}
