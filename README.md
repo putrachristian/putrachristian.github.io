@@ -1,36 +1,73 @@
-# Putra Christian - Frontend Developer
+# Cinematic Portfolio
 
-> I build accessible, pixel-perfect digital experiences for the web.
+One-page React + Vite portfolio designed for premium game event frontend work, with a grounded AI assistant that answers from curated portfolio and resume content.
 
-## 👋 About Me
+## Run locally
 
-I'm a dedicated **Front-End Web Developer** with over **5 years of experience** in developing and implementing interactive web applications. My expertise lies in building large-scale web events and gamification features, specifically within the gaming industry. I am proficient in using **React.js** and other modern technologies to create engaging and responsive user experiences.
+```bash
+npm install
+npm run dev
+```
 
-Currently, I work as an **Associate Front End Web Developer** at **PT. Garena Indonesia**, where I am fully responsible for the development and implementation of web events for major game titles such as **Free Fire** and **AOV**.
+## Build
 
-## 🛠️ Tech Stack
+```bash
+npm run build
+```
 
-**Frontend:**
--   React.js, Next.js
--   JavaScript (ES6+)
--   Tailwind CSS, Sass, Styled-Components
--   Framer Motion
--   Redux, Context API
+## Content editing
 
-## 🚀 Key Features of This Portfolio
+Update these files to replace placeholders with real content:
 
--   **Animated Loading Screen**: A smooth, percentage-based loading screen with zoom-in/fade-out exit transition.
--   **AI Chat Assistant**: An integrated AI chatbot (powered by Gemini) that can answer questions about my skills and experience.
--   **Dark Mode**: Fully supported dark/light theme switching.
--   **Project Showcase**: Interactive project gallery with modal details.
--   **Responsive Design**: Optimized for all device sizes.
+- `src/data/portfolio.json`
+- `src/data/knowledge.json`
 
-## 📫 Contact
+Project screenshots can be added by replacing `null` in each `screenshots[].src` field with a local asset path or hosted image URL.
 
--   **Email**: [putra3christian@gmail.com](mailto:putra3christian@gmail.com)
--   **LinkedIn**: [linkedin.com/in/putra-christian](https://linkedin.com/in/putra-christian)
--   **GitHub**: [putrachristian.github.io](https://github.com/putrachristian)
+## AI assistant configuration
 
----
+The chat widget works immediately with local grounded matching logic. To connect Google Gemini Flash Lite through the Gemini API, provide environment variables:
 
-© 2025 Putra Christian. Built with React & Vite.
+```bash
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-2.5-flash-lite
+GEMINI_SYSTEM_PROMPT=
+VITE_CHAT_MODE=auto
+VITE_CONTACT_MODE=auto
+VITE_GEMINI_API_KEY=
+VITE_GEMINI_MODEL=gemini-2.5-flash-lite
+VITE_GEMINI_SYSTEM_PROMPT=
+```
+
+The serverless endpoint lives in `api/chat.js`. By default it calls the Gemini `generateContent` API with `gemini-2.5-flash-lite`, and it still falls back to local grounded matching if the external model is unavailable.
+
+For local-only browser testing without `/api/chat`, you can use:
+
+```bash
+VITE_CHAT_MODE=direct
+VITE_GEMINI_API_KEY=your_key_here
+VITE_GEMINI_MODEL=gemini-2.5-flash-lite
+```
+
+This sends requests straight from the browser to Gemini and exposes the key client-side, so only use it for local testing.
+
+## Static hosting note
+
+GitHub Pages is static-only, so `/api/chat` and `/api/contact` do not run there.
+
+- `VITE_CHAT_MODE=auto` uses local grounded answers on `github.io`
+- `VITE_CONTACT_MODE=auto` opens the visitor's email app instead of calling `/api/contact`
+
+If you deploy the same frontend on a host with serverless functions, you can set:
+
+```bash
+VITE_CHAT_MODE=server
+VITE_CONTACT_MODE=server
+```
+
+If you use GitHub Pages with a custom domain and still want static behavior, set:
+
+```bash
+VITE_CHAT_MODE=local
+VITE_CONTACT_MODE=mailto
+```

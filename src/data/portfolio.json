@@ -1,0 +1,347 @@
+{
+  "profile": {
+    "name": "Putra Christian",
+    "headline": "Creative Front-End Developer building playful, polished, people-friendly web experiences",
+    "shortBio": "Front-End Developer with 5+ years of experience building responsive websites, interactive interfaces, and digital experiences that mix personality with clarity.",
+    "longBio": "I like frontend that feels alive. Sometimes that means bold layout, sometimes it means tiny interaction details, and sometimes it simply means making something clearer, faster, and more enjoyable to use. My professional background includes years of shipping work in a fast-moving environment at Garena, but I do not want to be boxed into one niche. What I bring is broader: creative UI thinking, responsive implementation, interface polish, and the ability to turn visual ideas into real web experiences people want to explore.",
+    "location": "Jakarta, Indonesia",
+    "availability": "Open to freelance, contract, and creative collaborations.",
+    "resumeUrl": "/putra-christian-resume.pdf",
+    "avatarUrl": "/avatar.mp4",
+    "avatarAlt": "Animated avatar video for Putra Christian",
+    "contactLinks": [
+      {
+        "label": "Email",
+        "href": "mailto:putra3christian@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/in/putra-christian/"
+      },
+      {
+        "label": "Website",
+        "href": "https://putrachristian.github.io"
+      },
+      {
+        "label": "Resume",
+        "href": "/putra-christian-resume.pdf"
+      }
+    ],
+    "stats": [
+      {
+        "label": "Years building for the web",
+        "value": "5+"
+      },
+      {
+        "label": "Projects in the library",
+        "value": "6+"
+      },
+      {
+        "label": "Talks and workshops",
+        "value": "3"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Frontend developer from Jakarta",
+    "headlinePrefix": "A playful",
+    "headlineEmphasis": "project playground",
+    "headlineSuffix": "for a frontend developer who likes lively interfaces, visual rhythm, and web experiences that people actually enjoy using.",
+    "subheadline": "This portfolio is rebuilt like a growing collection instead of a static brochure. It is designed to stay fun, flexible, and easy to update whenever a new project gets added.",
+    "badges": [
+      "Always growing",
+      "Multi-screenshot projects",
+      "Searchable library",
+      "Broad frontend positioning"
+    ]
+  },
+  "experience": [
+    {
+      "title": "Associate Front End Web Developer",
+      "company": "PT. Garena Indonesia",
+      "period": "Feb 2019 - Present",
+      "summary": "Builds interactive web experiences, frontend features, and polished UI in a fast-moving production environment.",
+      "highlights": [
+        "Creates interfaces with React.js, Redux, and JavaScript (ES6+) across responsive web experiences.",
+        "Collaborates with designers, backend developers, and product stakeholders to turn concepts into production-ready UI.",
+        "Optimizes performance and loading speed so rich interfaces stay smooth and dependable.",
+        "Works with clean code, Git workflows, and cross-device implementation best practices."
+      ]
+    },
+    {
+      "title": "Internship Front End Web Developer",
+      "company": "PT. Garena Indonesia",
+      "period": "Aug 2018 - Jan 2019",
+      "summary": "Built early production experience through testing, debugging, and UI implementation support.",
+      "highlights": [
+        "Helped test and debug shipped web experiences.",
+        "Assisted with UI component implementation and static page development using HTML and CSS."
+      ]
+    }
+  ],
+  "speaking": [
+    {
+      "title": "Create Your Own Personal Page with React JS",
+      "organization": "AMBIZ x Himpunan Mahasiswa Informatika ITB",
+      "period": "Mar 2021",
+      "role": "Speaker",
+      "summary": "Delivered a public webinar about building a personal page with React JS.",
+      "posterUrl": "/1.png",
+      "posterAlt": "Poster for the Create Your Own Personal Page with React JS webinar."
+    },
+    {
+      "title": "Belajar bikin game bareng Garena",
+      "organization": "Skilvul",
+      "period": "Jun 2021",
+      "role": "Speaker",
+      "summary": "Shared frontend web development principles in a collaborative workshop setting.",
+      "posterUrl": "/2.jpg",
+      "posterAlt": "Poster for the Belajar bikin game bareng Garena webinar."
+    },
+    {
+      "title": "How to Develop a Web Game",
+      "organization": "Skilvul",
+      "period": "Feb 2024",
+      "role": "Guest Speaker",
+      "summary": "Presented practical frontend thinking and best practices for interactive web-based experiences.",
+      "posterUrl": "/3.jpg",
+      "posterAlt": "Poster for the How to Develop a Web Game talk."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Core Stack",
+      "items": ["JavaScript (ES6+)", "HTML5", "CSS3", "React.js", "Redux", "Node.js", "Next.js"]
+    },
+    {
+      "group": "Interface Craft",
+      "items": ["Responsive Web Design", "Single-Page Applications", "Visual Hierarchy", "Interaction Design Thinking", "Cross-browser Compatibility", "RESTful APIs"]
+    },
+    {
+      "group": "Production Habits",
+      "items": ["Performance Optimization", "Component Systems", "UI Polish", "Git", "npm / yarn / bun", "Clean Code"]
+    }
+  ],
+  "process": [
+    {
+      "title": "Collect ideas like references on a moodboard",
+      "description": "I usually start by understanding the feeling, energy, and visual direction the interface should carry before worrying about details."
+    },
+    {
+      "title": "Make it fun but still obvious",
+      "description": "I like interfaces with personality, but only when they still feel easy to navigate and easy to understand."
+    },
+    {
+      "title": "Turn the nice idea into solid frontend",
+      "description": "The build still needs to be responsive, maintainable, and smooth enough to survive real use, not just look good in a screenshot."
+    }
+  ],
+  "chatPrompts": [
+    "What kind of frontend work does Putra enjoy most?",
+    "Can his experience fit projects outside gaming?",
+    "What technologies does he use most often?",
+    "How would you describe his frontend style?"
+  ],
+  "faqs": [
+    {
+      "question": "Why are there no live demo links for every project?",
+      "answer": "Some of the work comes from private or time-limited commercial projects, so this portfolio often uses screenshots and public-safe summaries instead of full live demos."
+    },
+    {
+      "question": "Is he only suitable for gaming projects?",
+      "answer": "No. The portfolio is intentionally positioned more broadly. The same frontend strengths can fit product sites, branded campaigns, landing pages, interactive websites, and other digital experiences."
+    },
+    {
+      "question": "Why is the site built like a project library?",
+      "answer": "Because the goal is long-term growth. New projects can be added continuously without redesigning the whole portfolio each time."
+    }
+  ],
+  "projects": [
+    {
+      "slug": "interactive-launch-experience",
+      "title": "Interactive Launch Experience",
+      "subtitle": "Bold layout, layered storytelling, and responsive interaction in one screen-driven experience.",
+      "year": "2025",
+      "category": "Landing Page",
+      "tags": ["Visual Storytelling", "Responsive UI", "Marketing"],
+      "role": "Frontend implementation, responsive UI, visual polish",
+      "summary": "A project type built around first impressions, strong composition, and smooth interaction. It is less about one niche and more about translating visual intent into something engaging on the web.",
+      "stack": ["React.js", "JavaScript", "Responsive UI", "Performance optimization"],
+      "contributions": [
+        "Implemented the frontend UI and interaction patterns for a visually driven experience.",
+        "Balanced expressive design with readable content structure and strong action hierarchy.",
+        "Built a flexible layout that could adapt to content changes without losing rhythm."
+      ],
+      "outcomes": [
+        "A stronger visual first impression.",
+        "A reusable structure for future screenshot-led case studies."
+      ],
+      "screenshots": [
+        {
+          "label": "Hero frame",
+          "alt": "Placeholder for the main launch experience screenshot.",
+          "src": null,
+          "note": "Replace with your real 16:9 hero screenshot."
+        }
+      ],
+      "confidentiality": "masked",
+      "featured": true,
+      "accent": "#ff7a59"
+    },
+    {
+      "slug": "content-rich-microsite",
+      "title": "Content-Rich Microsite",
+      "subtitle": "A roomy interface built around atmosphere, pacing, and content balance.",
+      "year": "2024",
+      "category": "Microsite",
+      "tags": ["Content Experience", "UI Systems", "Editorial Layout"],
+      "role": "Frontend development, modular section build, cross-device adaptation",
+      "summary": "This kind of project shows how to shape a lot of content into something still fun to browse, with large visuals, modular sections, and plenty of responsive decisions.",
+      "stack": ["React.js", "Redux", "Responsive layout", "Component systems"],
+      "contributions": [
+        "Translated visual direction into modular frontend sections.",
+        "Maintained a strong balance between mood, readability, and structure.",
+        "Adapted image-heavy layouts for smaller screens without flattening the experience."
+      ],
+      "outcomes": [
+        "A more expressive interface that still feels easy to follow.",
+        "Section patterns that support future content reuse."
+      ],
+      "screenshots": [
+        {
+          "label": "Main layout",
+          "alt": "Placeholder for a content-rich microsite screenshot.",
+          "src": null,
+          "note": "Replace with your real 16:9 content experience screenshot."
+        }
+      ],
+      "confidentiality": "masked",
+      "featured": true,
+      "accent": "#54c5ff"
+    },
+    {
+      "slug": "reward-and-progress-flow",
+      "title": "Reward And Progress Flow",
+      "subtitle": "A UI flow focused on clarity, repeated use, and satisfying interaction.",
+      "year": "2024",
+      "category": "Product Flow",
+      "tags": ["Flow Design", "Repeat Use", "Dashboard Feel"],
+      "role": "Frontend UI construction, interaction flow, content clarity",
+      "summary": "A good example of frontend thinking around dense content, repeated usage, and making a functional flow feel much lighter and more enjoyable to use.",
+      "stack": ["JavaScript", "UI systems", "Interaction flow", "Responsive cards"],
+      "contributions": [
+        "Built modular UI blocks for repeatable content and status communication.",
+        "Improved scannability for dense interface sections and frequent revisits.",
+        "Used contrast, spacing, and interaction cues to guide the eye naturally."
+      ],
+      "outcomes": [
+        "Cleaner information flow for repeat users.",
+        "A layout model that can transfer well to product or dashboard-style experiences."
+      ],
+      "screenshots": [
+        {
+          "label": "Flow overview",
+          "alt": "Placeholder for a reward and progress flow screenshot.",
+          "src": null,
+          "note": "Replace with your real 16:9 flow screenshot."
+        }
+      ],
+      "confidentiality": "public-safe",
+      "featured": true,
+      "accent": "#b56dff"
+    },
+    {
+      "slug": "premium-feature-landing",
+      "title": "Premium Feature Landing",
+      "subtitle": "A landing page focused on hierarchy, comparison, and visual confidence.",
+      "year": "2023",
+      "category": "Landing Page",
+      "tags": ["Feature Comparison", "Marketing", "Conversion"],
+      "role": "Frontend implementation and content structuring",
+      "summary": "Represents work where different tiers, features, or value points need to be communicated clearly without losing visual appeal.",
+      "stack": ["React.js", "Comparison layout", "Performance optimization"],
+      "contributions": [
+        "Implemented comparison-driven UI inside a visually rich layout.",
+        "Aligned promotional storytelling with practical content explanation.",
+        "Kept the structure adaptable for changing content."
+      ],
+      "outcomes": [
+        "Sharper hierarchy for feature communication.",
+        "Reusable patterns for value-focused landing pages."
+      ],
+      "screenshots": [
+        {
+          "label": "Feature comparison",
+          "alt": "Placeholder for a premium feature landing screenshot.",
+          "src": null,
+          "note": "Replace with your real 16:9 landing page screenshot."
+        }
+      ],
+      "confidentiality": "masked",
+      "featured": false,
+      "accent": "#5edeb0"
+    },
+    {
+      "slug": "interactive-prediction-flow",
+      "title": "Interactive Prediction Flow",
+      "subtitle": "A structured interface for participation, pacing, and long-form engagement.",
+      "year": "2023",
+      "category": "Interactive Flow",
+      "tags": ["Long-form Flow", "Engagement", "Structure"],
+      "role": "Frontend layout development and interaction pacing",
+      "summary": "A case study around organizing longer content flows so they stay inviting, understandable, and interesting to browse.",
+      "stack": ["Responsive UI", "Layout systems", "Interaction polish"],
+      "contributions": [
+        "Organized complex participation content into clearer sections.",
+        "Improved pacing and readability across a longer experience.",
+        "Preserved energy without sacrificing understanding."
+      ],
+      "outcomes": [
+        "Better narrative flow through the interface.",
+        "Stronger navigation for longer-form content."
+      ],
+      "screenshots": [
+        {
+          "label": "Interaction overview",
+          "alt": "Placeholder for an interactive prediction flow screenshot.",
+          "src": null,
+          "note": "Replace with your real 16:9 interface screenshot."
+        }
+      ],
+      "confidentiality": "masked",
+      "featured": false,
+      "accent": "#ffd457"
+    },
+    {
+      "slug": "mobile-first-action-page",
+      "title": "Mobile-First Action Page",
+      "subtitle": "A lightweight page built around fast understanding and clear action.",
+      "year": "2022",
+      "category": "Utility Page",
+      "tags": ["Mobile-first", "Clarity", "Action Flow"],
+      "role": "Frontend development, mobile optimization, CTA clarity",
+      "summary": "A public-safe format for simple but important frontend work where usability, speed, and layout clarity matter more than visual overload.",
+      "stack": ["HTML5", "CSS3", "JavaScript", "Responsive optimization"],
+      "contributions": [
+        "Implemented action-first layouts for faster user decision making.",
+        "Preserved visual quality on smaller screens.",
+        "Reduced friction around the main action path."
+      ],
+      "outcomes": [
+        "Cleaner mobile-first interaction.",
+        "A simple and effective page structure that can fit many industries."
+      ],
+      "screenshots": [
+        {
+          "label": "Mobile-first view",
+          "alt": "Placeholder for a mobile-first action page screenshot.",
+          "src": null,
+          "note": "Replace with your real 16:9 mobile-first screenshot."
+        }
+      ],
+      "confidentiality": "public-safe",
+      "featured": false,
+      "accent": "#ff92bf"
+    }
+  ]
+}

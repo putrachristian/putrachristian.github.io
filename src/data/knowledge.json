@@ -1,0 +1,282 @@
+[
+  {
+    "id": "profile-name",
+    "topic": "Full name",
+    "sourceType": "bio",
+    "tags": ["name", "full name", "who is putra", "identity", "introduce"],
+    "answer": "My full name is Putra Christian."
+  },
+  {
+    "id": "profile-headline",
+    "topic": "Professional headline",
+    "sourceType": "bio",
+    "tags": ["headline", "title", "professional title", "positioning", "brand"],
+    "answer": "I'd describe myself as a creative front-end developer building playful, polished, people-friendly web experiences."
+  },
+  {
+    "id": "profile-short-bio",
+    "topic": "Short bio",
+    "sourceType": "bio",
+    "tags": ["bio", "summary", "about", "intro", "overview"],
+    "answer": "I'm a front-end developer with 5+ years of experience building responsive websites, interactive interfaces, and digital experiences that mix personality with clarity."
+  },
+  {
+    "id": "profile-long-bio",
+    "topic": "Long-form personal approach",
+    "sourceType": "bio",
+    "tags": ["approach", "personal approach", "frontend philosophy", "design philosophy", "how i work"],
+    "answer": "I like frontend that feels alive. Sometimes that means bold layout, sometimes tiny interaction details, and sometimes just making something clearer, faster, and more enjoyable to use. My background includes years of shipping work in a fast-moving environment at Garena, but I don't want to be boxed into one niche. What I bring more broadly is creative UI thinking, responsive implementation, interface polish, and the ability to turn visual ideas into real web experiences people want to explore."
+  },
+  {
+    "id": "profile-location",
+    "topic": "Location",
+    "sourceType": "bio",
+    "tags": ["location", "based", "where", "city", "country", "jakarta", "indonesia"],
+    "answer": "I'm based in Jakarta, Indonesia."
+  },
+  {
+    "id": "profile-availability",
+    "topic": "Availability",
+    "sourceType": "bio",
+    "tags": ["available", "availability", "hire", "freelance", "contract", "collaboration", "open to work"],
+    "answer": "I'm open to freelance, contract, and creative collaboration opportunities."
+  },
+  {
+    "id": "profile-contact-email",
+    "topic": "Email contact",
+    "sourceType": "bio",
+    "tags": ["email", "mail", "contact email", "reach out", "contact"],
+    "answer": "You can reach me at putra3christian@gmail.com."
+  },
+  {
+    "id": "profile-contact-links",
+    "topic": "Contact links",
+    "sourceType": "bio",
+    "tags": ["linkedin", "website", "resume", "links", "contact links", "portfolio links"],
+    "answer": "You can find me by email, on LinkedIn at linkedin.com/in/putra-christian, on my site at putrachristian.github.io, and my resume is downloadable from the site."
+  },
+  {
+    "id": "profile-years",
+    "topic": "Years of experience",
+    "sourceType": "resume",
+    "tags": ["years", "experience", "how long", "career length", "background"],
+    "answer": "I've been doing frontend for more than 5 years."
+  },
+  {
+    "id": "profile-stats",
+    "topic": "Portfolio stats",
+    "sourceType": "bio",
+    "tags": ["stats", "portfolio stats", "projects", "talks", "numbers"],
+    "answer": "Right now my site highlights 5+ years building for the web, 6+ projects in the library, and 3 talks or workshops."
+  },
+  {
+    "id": "specialty-frontend",
+    "topic": "Frontend specialty",
+    "sourceType": "bio",
+    "tags": ["specialty", "specialize", "focus", "frontend", "ui", "creative frontend", "interactive"],
+    "answer": "My specialty is creative frontend work — responsive interfaces, interactive websites, polished UI, and digital experiences that feel lively, clear, and fun to use."
+  },
+  {
+    "id": "style-playful",
+    "topic": "Frontend style",
+    "sourceType": "bio",
+    "tags": ["style", "visual style", "playful", "polished", "memorable", "personality"],
+    "answer": "My style leans playful, polished, and people-friendly. I want interfaces to feel memorable and alive while still being readable, responsive, and easy to use."
+  },
+  {
+    "id": "industry-fit",
+    "topic": "Fit outside gaming",
+    "sourceType": "bio",
+    "tags": ["outside gaming", "beyond gaming", "industry fit", "generalist", "other industries", "not only games"],
+    "answer": "Yeah, for sure. A lot of my professional background comes from gaming, but my frontend skills fit product sites, landing pages, branded microsites, interactive campaigns, and plenty of other digital experiences outside gaming."
+  },
+  {
+    "id": "collaboration-style",
+    "topic": "Collaboration style",
+    "sourceType": "resume",
+    "tags": ["collaboration", "teamwork", "designers", "backend", "product", "stakeholders", "work style"],
+    "answer": "I like working closely with designers, backend devs, and product folks to turn concepts, mockups, and wireframes into production-ready frontend."
+  },
+  {
+    "id": "performance-focus",
+    "topic": "Performance focus",
+    "sourceType": "resume",
+    "tags": ["performance", "speed", "optimization", "loading", "fast", "stable"],
+    "answer": "Performance is a big part of how I work — keeping interfaces fast, responsive, and stable even when they're visually rich."
+  },
+  {
+    "id": "skill-core-stack",
+    "topic": "Core frontend stack",
+    "sourceType": "resume",
+    "tags": ["stack", "tech stack", "skills", "react", "redux", "next", "node", "html", "css", "javascript"],
+    "answer": "My core stack is JavaScript (ES6+), HTML5, CSS3, React.js, Redux, Node.js, Next.js, Sass, Styled-Components, Git, and modern package managers like npm, yarn, and bun."
+  },
+  {
+    "id": "skill-interface-craft",
+    "topic": "Interface craft skills",
+    "sourceType": "resume",
+    "tags": ["responsive web design", "spa", "single-page application", "cross-browser", "restful api", "visual hierarchy", "interaction design"],
+    "answer": "On the interface side, I do responsive web design, single-page apps, visual hierarchy, interaction design thinking, cross-browser work, and I'm comfortable integrating with RESTful APIs."
+  },
+  {
+    "id": "skill-production-habits",
+    "topic": "Production habits",
+    "sourceType": "resume",
+    "tags": ["clean code", "component systems", "ui polish", "git workflow", "production", "best practices"],
+    "answer": "My production habits lean on clean code, component thinking, UI polish, Git-based workflows, performance awareness, and maintainable frontend."
+  },
+  {
+    "id": "process-moodboard",
+    "topic": "Process step one",
+    "sourceType": "bio",
+    "tags": ["process", "workflow", "moodboard", "references", "visual direction"],
+    "answer": "I usually start by getting a feel for the energy and visual direction a UI should carry before I get into implementation details."
+  },
+  {
+    "id": "process-balance",
+    "topic": "Process step two",
+    "sourceType": "bio",
+    "tags": ["process", "fun but clear", "usability", "clarity", "personality"],
+    "answer": "I like interfaces with personality, but only when they still feel obvious and easy to move through."
+  },
+  {
+    "id": "process-build",
+    "topic": "Process step three",
+    "sourceType": "bio",
+    "tags": ["process", "implementation", "responsive", "maintainable", "frontend build"],
+    "answer": "The final build has to be responsive, maintainable, and smooth enough to survive real use — not just look good in a screenshot."
+  },
+  {
+    "id": "experience-garena-current",
+    "topic": "Current role at Garena",
+    "sourceType": "resume",
+    "tags": ["garena", "current role", "associate front end web developer", "current job", "present"],
+    "answer": "I currently work at PT. Garena Indonesia as an Associate Front End Web Developer — I've been in this role since February 2019."
+  },
+  {
+    "id": "experience-garena-summary",
+    "topic": "Garena responsibilities",
+    "sourceType": "resume",
+    "tags": ["garena responsibilities", "what i do", "react", "frontend features", "production environment"],
+    "answer": "At Garena I build interactive web experiences, frontend features, and polished UI in a fast-moving production environment. Day-to-day that's React.js, Redux, JavaScript (ES6+), performance tuning, responsive implementation, and turning concepts into production-ready UI."
+  },
+  {
+    "id": "experience-garena-highlights",
+    "topic": "Garena work highlights",
+    "sourceType": "resume",
+    "tags": ["garena highlights", "highlights", "cross-device", "git workflows", "loading speed"],
+    "answer": "Some highlights from my time at Garena: building interfaces with React.js and Redux, collaborating across teams, optimizing loading speed and performance, and sticking to clean code plus cross-device best practices."
+  },
+  {
+    "id": "experience-garena-internship",
+    "topic": "Garena internship",
+    "sourceType": "resume",
+    "tags": ["internship", "intern", "early career", "garena internship", "2018"],
+    "answer": "Before my full-time role, I interned as a Front End Web Developer at PT. Garena Indonesia from August 2018 to January 2019. That period was mostly testing, debugging, UI component support, and static page implementation with HTML and CSS."
+  },
+  {
+    "id": "talk-react-personal-page",
+    "topic": "Create Your Own Personal Page with React JS",
+    "sourceType": "resume",
+    "tags": ["react webinar", "personal page", "ambiz", "itb", "speaker", "2021"],
+    "answer": "In March 2021, I spoke at a public webinar called 'Create Your Own Personal Page with React JS' with AMBIZ and Himpunan Mahasiswa Informatika ITB."
+  },
+  {
+    "id": "talk-garena-game",
+    "topic": "Belajar bikin game bareng Garena",
+    "sourceType": "resume",
+    "tags": ["belajar bikin game", "garena", "skilvul", "speaker", "2021", "webinar"],
+    "answer": "In June 2021, I spoke at 'Belajar bikin game bareng Garena' with Skilvul, sharing practical frontend web dev ideas in a collaborative workshop."
+  },
+  {
+    "id": "talk-web-game",
+    "topic": "How to Develop a Web Game",
+    "sourceType": "resume",
+    "tags": ["how to develop a web game", "skilvul", "guest speaker", "2024", "web game"],
+    "answer": "In February 2024, I joined Skilvul as a guest speaker for 'How to Develop a Web Game', walking through practical frontend thinking for interactive web experiences."
+  },
+  {
+    "id": "portfolio-library",
+    "topic": "Project library concept",
+    "sourceType": "bio",
+    "tags": ["portfolio concept", "project library", "growing portfolio", "always upload", "structure"],
+    "answer": "I built this site like a growing project library instead of a one-shot static showcase, so I can keep adding new work without redesigning the whole thing every time."
+  },
+  {
+    "id": "faq-no-live-demo",
+    "topic": "Why many projects have no live demo",
+    "sourceType": "faq",
+    "tags": ["no live demo", "demo links", "private work", "commercial projects", "screenshots"],
+    "answer": "A lot of my projects don't have live demos because they come from private or time-limited commercial work, so I use screenshots and public-safe summaries to represent them responsibly."
+  },
+  {
+    "id": "project-launch-experience",
+    "topic": "Interactive Launch Experience",
+    "sourceType": "project",
+    "tags": ["interactive launch experience", "launch page", "bold layout", "visual storytelling", "landing page"],
+    "answer": "Interactive Launch Experience is one of my featured landing-page style projects — bold layout, layered storytelling, strong first impressions, smooth responsive interaction. My role there was frontend implementation, responsive UI, and visual polish."
+  },
+  {
+    "id": "project-content-rich-microsite",
+    "topic": "Content-Rich Microsite",
+    "sourceType": "project",
+    "tags": ["content-rich microsite", "microsite", "editorial layout", "modular sections", "content experience"],
+    "answer": "Content-Rich Microsite is a featured microsite-style project built around atmosphere, pacing, and content balance. It's a good example of how I shape a lot of content into something still enjoyable to browse with modular sections and responsive adaptation."
+  },
+  {
+    "id": "project-reward-progress",
+    "topic": "Reward And Progress Flow",
+    "sourceType": "project",
+    "tags": ["reward and progress flow", "product flow", "dashboard", "clarity", "repeat use"],
+    "answer": "Reward And Progress Flow is a featured product-flow project about clarity, repeated use, and satisfying interaction. It's how I think about dense content, repeat visits, and making functional flows feel lighter and more fun."
+  },
+  {
+    "id": "project-premium-feature",
+    "topic": "Premium Feature Landing",
+    "sourceType": "project",
+    "tags": ["premium feature landing", "feature comparison", "marketing", "conversion", "landing page"],
+    "answer": "Premium Feature Landing is the kind of work where multiple tiers, features, or value points need to come across clearly without losing visual appeal. My contribution focused on frontend implementation and content structuring."
+  },
+  {
+    "id": "project-prediction-flow",
+    "topic": "Interactive Prediction Flow",
+    "sourceType": "project",
+    "tags": ["interactive prediction flow", "engagement", "long-form flow", "structure", "interaction"],
+    "answer": "Interactive Prediction Flow is about organizing longer content flows so they stay inviting, understandable, and interesting to browse. It shows how I handle pacing, readability, and interface guidance."
+  },
+  {
+    "id": "project-mobile-action-page",
+    "topic": "Mobile-First Action Page",
+    "sourceType": "project",
+    "tags": ["mobile-first action page", "mobile first", "clarity", "cta", "utility page"],
+    "answer": "Mobile-First Action Page is a utility-style project focused on fast understanding and clear action. It's how I keep mobile-first work effective, visually clean, and low-friction."
+  },
+  {
+    "id": "project-types-summary",
+    "topic": "Kinds of projects in the portfolio",
+    "sourceType": "project",
+    "tags": ["project types", "landing page", "microsite", "product flow", "interactive flow", "utility page"],
+    "answer": "My project library covers landing pages, microsites, product-style flows, interaction-heavy experiences, and mobile-first utility pages. Across all of them the work emphasizes responsive UI, visual storytelling, clarity, and frontend polish."
+  },
+  {
+    "id": "faq-why-library",
+    "topic": "Why the portfolio is structured as a library",
+    "sourceType": "faq",
+    "tags": ["why library", "why portfolio library", "growth", "portfolio structure"],
+    "answer": "I set the site up as a library because the goal is long-term growth — I can drop in new projects continuously without rebuilding the whole portfolio each time."
+  },
+  {
+    "id": "faq-fit-outside-games",
+    "topic": "Whether I only fit gaming projects",
+    "sourceType": "faq",
+    "tags": ["only gaming", "suitable for gaming only", "outside games", "general frontend fit"],
+    "answer": "Nope, not at all. I'm intentionally positioning myself more broadly. The same frontend strengths fit product sites, branded campaigns, landing pages, interactive websites, and plenty of other digital experiences."
+  },
+  {
+    "id": "portfolio-prompts",
+    "topic": "Suggested chat themes",
+    "sourceType": "bio",
+    "tags": ["chat prompts", "ask about", "themes", "questions"],
+    "answer": "This chat is set up for questions about what frontend work I enjoy most, how my experience fits outside gaming, the tech I use most often, and how I'd describe my style."
+  }
+]
