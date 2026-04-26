@@ -19,7 +19,6 @@ import { fetchSanityPortfolio } from './utils/sanity'
 const fallbackData = portfolioData as PortfolioData
 
 const FALLBACK_EMAIL_HREF = 'mailto:putra3christian@gmail.com'
-const INTRO_SESSION_KEY = 'portfolio-intro-shown'
 const TIME_TICK_MS = 30_000
 
 type SectionId = 'home' | 'projects' | 'about' | 'talks' | 'contact' | 'chat'
@@ -55,7 +54,7 @@ function shouldShowIntroOnMount() {
     return false
   }
 
-  return window.sessionStorage?.getItem(INTRO_SESSION_KEY) !== '1'
+  return true
 }
 
 function getSectionAvatars(profile: ProfileData): SectionAvatar[] {
@@ -171,11 +170,6 @@ function App() {
 
   const dismissIntro = () => {
     setShowIntro(false)
-    try {
-      window.sessionStorage?.setItem(INTRO_SESSION_KEY, '1')
-    } catch {
-      // sessionStorage may be unavailable (private mode); safe to ignore.
-    }
   }
 
   const renderSection = () => {
