@@ -72,10 +72,18 @@ const portfolioQuery = `{
       period,
       role,
       "summary": coalesce(summary, ""),
-      posterUrl,
+      "posterUrl": coalesce(posterImage.asset->url, posterUrl),
       posterAlt
     },
-    *[_type == "portfolio"][0].speaking
+    *[_type == "portfolio"][0].speaking[]{
+      title,
+      organization,
+      period,
+      role,
+      "summary": coalesce(summary, ""),
+      "posterUrl": coalesce(posterImage.asset->url, posterUrl),
+      posterAlt
+    }
   ),
   "skills": select(
     count(*[_type == "skillGroup"]) > 0 => *[_type == "skillGroup"] | order(order asc, _createdAt asc){
